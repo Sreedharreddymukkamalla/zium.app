@@ -1,0 +1,41 @@
+.topRightWrapper {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: default;
+}
+
+.bottomRightWrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  cursor: default;
+}
+
+.focusAudioButton {
+  &.isAudioFocused {
+    box-shadow: 0 0 0 2px var(--color-border-accent);
+  }
+}
+
+.topLeftWrapper {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  gap: 8px;
+  cursor: default;
+}
+
+.hideWhenUiHidden {
+  opacity: 0;
+  transition: var(--transition-slow);
+  transition-property: opacity;
+
+  :global(.uiVisible) & {
+    opacity: 1;
+  }
+}

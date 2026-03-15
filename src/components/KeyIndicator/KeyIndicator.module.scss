@@ -1,0 +1,16 @@
+.wrapper {
+  display: inline-flex;
+  height: 20px;
+  min-width: 20px;
+  border-radius: var(--radii-xsmall);
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  @include typography(text, 200, regular);
+  background: var(--color-background-static-strong);
+  color: var(--color-content-strong);
+  vertical-align: bottom;
+}

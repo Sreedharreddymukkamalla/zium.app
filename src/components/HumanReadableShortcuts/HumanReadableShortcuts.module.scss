@@ -1,0 +1,15 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  user-select: none;
+}
+
+.icon {
+  color: var(--color-content-strong);
+}
+
+.plus {
+  color: var(--color-content-default);
+  @include typography(text, 300, regular);
+}

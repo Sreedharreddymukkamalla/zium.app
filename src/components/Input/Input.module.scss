@@ -1,0 +1,128 @@
+.iconWrapper {
+  display: flex;
+  color: var(--color-content-muted);
+  transition: var(--transition-fast);
+  transition-property: color;
+
+  * {
+    color: currentColor;
+  }
+}
+
+.closeWrapperPlaceholder {
+  width: 20px;
+}
+
+.shortcutPlaceholder {
+  visibility: hidden;
+}
+
+.rightButtonsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+
+  &.isAbsolute {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 12px;
+    padding-left: 0;
+  }
+}
+
+.closeWrapper {
+  display: flex;
+  color: var(--color-content-muted);
+  transition: var(--transition-fast);
+  transition-property: color, opacity;
+  visibility: hidden;
+  appearance: none;
+  border: none;
+  padding: 2px;
+  margin: -2px;
+  background: none;
+  cursor: pointer;
+  border-radius: var(--radii-rounded);
+  pointer-events: auto;
+
+  * {
+    color: currentColor;
+  }
+
+  &:hover {
+    color: var(--color-content-strong);
+  }
+
+  &.isVisible {
+    visibility: visible;
+  }
+}
+
+.label {
+  display: flex;
+  gap: 4px;
+  padding: 12px 12px;
+  border-radius: var(--radii-small);
+  background: var(--color-background-interactive-neutral-rest);
+  overflow: hidden;
+  transition: var(--transition-fast);
+  transition-property: background, box-shadow;
+  cursor: text;
+  width: 100%;
+  @extend .pos-1dp;
+
+  &.isRounded {
+    border-radius: var(--radii-rounded);
+  }
+
+  &:not(:focus-within):hover {
+    background: var(--color-background-interactive-neutral-hover);
+    @extend .pos-2dp;
+
+    .iconWrapper {
+      color: var(--color-content-strong);
+    }
+  }
+
+  &:focus-within {
+    box-shadow: 0 0 0 2px var(--color-border-accent);
+
+    .iconWrapper {
+      color: var(--color-content-strong);
+    }
+
+    &::after {
+      opacity: 0;
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  position: relative;
+}
+
+.input {
+  border: 0;
+  background: none;
+  color: var(--color-content-strong);
+  caret-color: var(--color-content-accent);
+  padding: 0 4px;
+  flex: 1;
+  width: 100%;
+
+  @include typography(text, 300, regular);
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: var(--color-content-muted);
+  }
+}

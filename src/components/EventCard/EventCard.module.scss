@@ -1,0 +1,117 @@
+.heroImageWrapper {
+  display: flex;
+  width: 100%;
+  transition: var(--transition-medium);
+  transition-property: border-radius;
+  border-radius: var(--radii-medium);
+  background: var(--color-background-static-muted);
+  overflow: hidden;
+
+  &.isLoaded {
+    @include inner-border(var(--color-border-default)) {
+      transition: var(--transition-medium);
+      transition-property: box-shadow;
+    }
+  }
+
+  &:not(.isLoaded) .heroImage {
+    opacity: 0;
+  }
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+  transition: var(--transition-medium);
+  transition-property: opacity, transform;
+  object-fit: cover;
+  transform: scale(1);
+  aspect-ratio: 33 / 16;
+}
+
+.contentWrapper {
+  padding: 24px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerTextContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.headerFirstLine {
+  @include typography(heading, 400, default);
+  color: var(--color-content-strong);
+}
+
+.headerSecondLine {
+  @include typography(label, 300);
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+
+  color: var(--color-content-default);
+}
+
+.headerRound {
+  color: var(--color-content-muted);
+}
+
+.content {
+  margin-top: 16px;
+  @include typography(text, 300, regular);
+}
+
+.hoverPositionWrapper {
+  /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
+  transform: perspective(1000px) rotateX(calc(var(--y-pos) * -2deg)) rotateY(calc(var(--x-pos) * 2deg));
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  border-radius: var(--radii-medium);
+  transition: var(--transition-medium);
+  transition-property: background, transform;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  user-select: none;
+
+  &:hover,
+  :global([data-whatinput="keyboard"]) &:focus {
+    background: var(--color-background-interactive-neutral-rest);
+    @extend .pos-1dp;
+    transform: scale(1.05);
+
+    .heroImage {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .heroImageWrapper {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+      &::after {
+        box-shadow: inset 0 -1px 0 0px var(--color-border-default);
+      }
+    }
+  }
+
+  &:active {
+    transform: scale(1.025);
+  }
+}

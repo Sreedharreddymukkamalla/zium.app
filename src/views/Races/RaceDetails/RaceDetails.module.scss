@@ -1,0 +1,27 @@
+.grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.raceDetailsListItem {
+  &:hover,
+  :global([data-whatinput="keyboard"]) &:focus {
+    .raceDetailsListItemRightIconWrapper {
+      opacity: 1;
+    }
+  }
+}
+
+.errorWrapper {
+  padding: 16px;
+}
+
+.zeroStateButtonWrapper {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.syncedIcon {
+  margin-right: 4px;
+  vertical-align: bottom;
+}

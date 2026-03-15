@@ -1,0 +1,58 @@
+@import "../../PlayerMixins.scss";
+
+.buttonsWrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.volumeSliderContainer {
+  overflow: visible;
+  position: absolute;
+  z-index: 1;
+  height: 52px;
+  width: 196px;
+  top: -4px;
+  left: -4px;
+  background: var(--color-background-static-default);
+  @extend .pos-1dp;
+  border-radius: var(--radii-rounded);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-fast);
+  transition-property: opacity, visibility;
+  pointer-events: none;
+}
+
+.volumeWrapper {
+  position: relative;
+  width: 44px;
+  height: 44px;
+
+  &:hover,
+  &.isFocusWithin {
+    @include slider-hover();
+
+    .volumeSliderContainer {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+    }
+  }
+}
+
+.volumeButtonWrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.volumeSliderWrapper {
+  position: absolute;
+  left: 64px;
+  right: 24px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  @include slider();
+}

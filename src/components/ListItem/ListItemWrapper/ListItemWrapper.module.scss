@@ -1,0 +1,45 @@
+.wrapper {
+  display: block;
+  position: relative;
+  padding: 8px;
+  border: none;
+  border-radius: var(--radii-small);
+  width: 100%;
+  user-select: none;
+  transition: var(--transition-medium);
+  transition-property: background, transform;
+  transform: scale(1);
+
+  &:not(&.disabled) {
+    cursor: pointer;
+
+    &:not(.isActive) {
+      background: transparent;
+
+      &:hover {
+        background: var(--color-background-interactive-neutral-hover);
+      }
+
+      &:active {
+        background: var(--color-background-interactive-neutral-press);
+      }
+
+      :global([data-whatinput="keyboard"]) &:focus {
+        background: var(--color-background-interactive-neutral-hover);
+      }
+    }
+
+    &.isActive {
+      background: var(--color-background-interactive-neutral-rest);
+      @extend .pos-1dp;
+    }
+
+    &:hover:not(&.disabled) {
+      transform: scale(1.025);
+    }
+
+    &:active:not(&.disabled) {
+      transform: scale(1);
+    }
+  }
+}

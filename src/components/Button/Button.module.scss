@@ -1,0 +1,210 @@
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radii-rounded);
+  gap: 4px;
+  padding: 12px;
+  text-decoration: none;
+  transition: var(--transition-fast);
+  transition-property: background, color, transform;
+  border: 0;
+  user-select: none;
+  transform: scale(1);
+  cursor: pointer;
+  @include typography(label, 300);
+
+  &::after {
+    transition: var(--transition-fast);
+    transition-property: box-shadow;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  &:not(&.disabled) {
+    &:hover {
+      transform: scale(1.0333);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+
+  &.action {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  &.fluid {
+    width: 100%;
+  }
+
+  &.primary {
+    background: var(--color-background-interactive-accent-rest);
+    color: var(--color-content-on-accent);
+    @extend .pos-1dp;
+
+    .iconWrapper {
+      color: var(--color-content-on-accent);
+    }
+
+    &:not(&.disabled) {
+      &:hover {
+        background: var(--color-background-interactive-accent-hover);
+        color: var(--color-content-on-accent);
+        @extend .pos-2dp;
+      }
+
+      &:active,
+      &:active:hover,
+      &.isPressed,
+      &.isPressed:hover {
+        background: var(--color-background-interactive-accent-press);
+        color: var(--color-content-on-accent);
+        @extend .neg-1dp;
+      }
+    }
+
+    &.disabled {
+      background: var(--color-background-interactive-disabled);
+      color: var(--color-content-muted);
+
+      .iconWrapper {
+        color: var(--color-content-muted);
+      }
+    }
+  }
+
+  &.secondary {
+    background: var(--color-background-interactive-neutral-rest);
+    color: var(--color-content-strong);
+    @extend .pos-1dp;
+
+    .iconWrapper {
+      color: var(--color-content-default);
+    }
+
+    &:not(&.disabled) {
+      &:hover {
+        background: var(--color-background-interactive-neutral-hover);
+        color: var(--color-content-strong);
+        @extend .pos-2dp;
+
+        .iconWrapper {
+          color: var(--color-content-strong);
+        }
+      }
+
+      &:active,
+      &:active:hover,
+      &.isPressed,
+      &.isPressed:hover {
+        background: var(--color-background-interactive-neutral-press);
+        color: var(--color-content-strong);
+        @extend .neg-1dp;
+
+        .iconWrapper {
+          color: var(--color-content-default);
+        }
+      }
+    }
+
+    &.disabled {
+      background: var(--color-background-interactive-disabled);
+      color: var(--color-content-muted);
+
+      .iconWrapper {
+        color: var(--color-content-muted);
+      }
+    }
+  }
+
+  &.secondaryInverted {
+    background: var(--color-background-interactive-darken-rest);
+    color: var(--color-content-on-darken);
+
+    .iconWrapper {
+      color: var(--color-content-on-darken);
+    }
+
+    &:not(&.disabled) {
+      &:hover {
+        background: var(--color-background-interactive-darken-hover);
+      }
+
+      &:active,
+      &.isPressed &.isPressed:hover {
+        background: var(--color-background-interactive-darken-press);
+      }
+    }
+
+    &:active {
+      background: var(--color-background-interactive-darken-press);
+    }
+
+    &.disabled {
+      color: var(--color-content-muted);
+
+      .iconWrapper {
+        color: var(--color-content-muted);
+      }
+    }
+  }
+
+  &.tertiary {
+    background: transparent;
+    color: var(--color-content-strong);
+
+    .iconWrapper {
+      color: var(--color-content-default);
+    }
+
+    &:not(&.disabled) {
+      &:hover {
+        background: var(--color-background-interactive-neutral-hover);
+        color: var(--color-content-strong);
+        @extend .pos-2dp;
+
+        .iconWrapper {
+          color: var(--color-content-strong);
+        }
+      }
+
+      &:active,
+      &:active:hover,
+      &.isPressed,
+      &.isPressed:hover {
+        background: var(--color-background-interactive-neutral-press);
+        color: var(--color-content-strong);
+        @extend .neg-1dp;
+
+        .iconWrapper {
+          color: var(--color-content-default);
+        }
+      }
+    }
+
+    &.disabled {
+      @include inner-border(transparent);
+      color: var(--color-content-muted);
+
+      .iconWrapper {
+        color: var(--color-content-muted);
+      }
+    }
+  }
+}
+
+.content {
+  padding: 0 4px;
+}
+
+.iconWrapper {
+  display: flex;
+  transition: var(--transition-fast);
+  transition-property: background, color;
+}

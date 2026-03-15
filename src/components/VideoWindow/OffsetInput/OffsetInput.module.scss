@@ -1,0 +1,27 @@
+.wrapper {
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--color-background-interactive-darken-rest);
+  border-radius: var(--radii-rounded);
+}
+
+.input {
+  text-align: center;
+}
+
+.inputLabel {
+  padding: 8px;
+  width: 80px;
+}
+
+.button {
+  padding: 8px;
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background: var(--color-border-default);
+}

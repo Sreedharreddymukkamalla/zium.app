@@ -1,0 +1,44 @@
+.header {
+  padding: 16px;
+  padding-bottom: 8px;
+  @include typography(text, 200, regular);
+  color: var(--color-content-muted);
+  user-select: none;
+}
+
+.liveIndicator {
+  color: var(--color-content-accent);
+  text-transform: uppercase;
+}
+
+.zeroStateWrapper {
+  background: var(--color-background-static-default);
+  @extend .pos-1dp;
+  border-radius: var(--radii-medium);
+  margin: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  user-select: none;
+}
+
+.zeroStateContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.zeroStateIcon {
+  color: var(--color-content-muted);
+}
+
+.zeroStateHeader {
+  @include typography(heading, 300, default);
+  color: var(--color-content-strong);
+}
+
+.zeroStateSubheader {
+  @include typography(text, 200, regular);
+  color: var(--color-content-default);
+}

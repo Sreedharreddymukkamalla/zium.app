@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  background: var(--color-background-surface);
+  color: var(--color-content-default);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricprecision;
+
+  @include typography(text, 300, regular);
+}
+
+button,
+a {
+  color: var(--color-content-default);
+}
+
+button {
+  font: inherit;
+}
+
+body,
+#root {
+  height: 100vh;
+}
+
+html,
+body,
+#root,
+#root > div {
+  @media (max-width: 800px) {
+    height: 100%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+*:focus {
+  outline: none;
+}
+
+[data-whatinput="keyboard"] *:focus {
+  outline: 2px solid var(--color-border-accent);
+  outline-offset: 2px;
+}
+
+.noTransition * {
+  transition: none !important;
+}

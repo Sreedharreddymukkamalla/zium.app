@@ -1,0 +1,41 @@
+.buttonsWrapper {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.header {
+  @include typography(heading, 500, default);
+  color: var(--color-content-strong);
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+  @include typography(text, 300, regular);
+  color: var(--color-content-default);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.sectionHeader {
+  @include typography(text, 400, strong);
+  user-select: none;
+  margin-bottom: 4px;
+  color: var(--color-content-strong);
+}
+
+.buttonsRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}

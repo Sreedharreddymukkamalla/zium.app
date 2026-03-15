@@ -1,0 +1,157 @@
+.contents {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.rndWrapper {
+  position: absolute;
+  /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties */
+  z-index: var(--zIndex);
+  cursor: grab;
+  overflow: hidden;
+  background: var(--color-background-static-muted);
+  border-radius: var(--radii-small);
+  --scale: 1;
+
+  &::after {
+    content: "";
+    display: block;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    box-shadow: inset 0 0 0 0px var(--color-border-default);
+    pointer-events: none;
+    transition: 0.1s ease-in-out;
+    transition-property: box-shadow;
+    border-radius: 8px;
+  }
+
+  &:hover::after {
+    box-shadow: inset 0 0 0 1px var(--color-border-default);
+  }
+
+  &.isDragging {
+    cursor: grabbing;
+  }
+
+  &.rndWrapperEntered {
+    opacity: 1;
+    visibility: visible;
+    --scale: 1;
+  }
+
+  &.rndWrapperExited {
+    opacity: 0;
+    visibility: hidden;
+    --scale: 0.975;
+  }
+
+  &.rndWrapperEnterActive {
+    opacity: 1;
+    visibility: visible;
+    --scale: 1;
+
+    transition: var(--transition-fast);
+    transition-property: opacity, visibility, transform;
+  }
+
+  &.rndWrapperExitActive {
+    opacity: 0;
+    visibility: hidden;
+    --scale: 0.95;
+
+    transition: var(--transition-fast);
+    transition-property: opacity, visibility, transform;
+  }
+}
+
+.rndHandle {
+  position: absolute;
+  user-select: none;
+  --handleSize: 5px;
+
+  @include feature-flag("show-window-borders", "true") {
+    &.rndHandleN,
+    &.rndHandleE,
+    &.rndHandleW,
+    &.rndHandleS {
+      background: var(--color-content-accent);
+    }
+
+    &.rndHandleNw,
+    &.rndHandleNe,
+    &.rndHandleSw,
+    &.rndHandleSe {
+      background: var(--color-core-green-500);
+    }
+  }
+}
+
+.rndHandleN {
+  left: var(--handleSize);
+  top: 0;
+  height: var(--handleSize);
+  width: calc(100% - var(--handleSize) * 2);
+  cursor: ns-resize;
+}
+
+.rndHandleE {
+  right: 0;
+  top: var(--handleSize);
+  width: var(--handleSize);
+  height: calc(100% - var(--handleSize) * 2);
+  cursor: ew-resize;
+}
+
+.rndHandleW {
+  left: 0;
+  top: var(--handleSize);
+  width: var(--handleSize);
+  height: calc(100% - var(--handleSize) * 2);
+  cursor: ew-resize;
+}
+
+.rndHandleS {
+  left: var(--handleSize);
+  bottom: 0;
+  height: var(--handleSize);
+  width: calc(100% - var(--handleSize) * 2);
+  cursor: ns-resize;
+}
+
+.rndHandleNw {
+  top: 0;
+  left: 0;
+  height: calc(var(--handleSize) * 2);
+  width: calc(var(--handleSize) * 2);
+  cursor: nwse-resize;
+}
+
+.rndHandleNe {
+  top: 0;
+  right: 0;
+  height: calc(var(--handleSize) * 2);
+  width: calc(var(--handleSize) * 2);
+  cursor: nesw-resize;
+}
+
+.rndHandleSw {
+  bottom: 0;
+  left: 0;
+  height: calc(var(--handleSize) * 2);
+  width: calc(var(--handleSize) * 2);
+  cursor: nesw-resize;
+}
+
+.rndHandleSe {
+  bottom: 0;
+  right: 0;
+  height: calc(var(--handleSize) * 2);
+  width: calc(var(--handleSize) * 2);
+  cursor: nwse-resize;
+}

@@ -1,0 +1,33 @@
+.contentWrapper {
+  display: flex;
+  padding: 4px 8px;
+  gap: 8px;
+  appearance: none;
+  text-align: left;
+}
+
+.text {
+  @include typography(label, 300);
+  color: var(--color-content-default);
+  flex: 1;
+  text-decoration: none;
+  line-height: 20px;
+
+  &.isActive {
+    color: var(--color-content-strong);
+  }
+}
+
+.caption {
+  @include typography(text, 300, regular);
+  color: var(--color-content-muted);
+}
+
+.listItemWrapper {
+  text-decoration: none;
+
+  &:hover:not(:active) .text:not(.isActive),
+  :global([data-whatinput="keyboard"]) &:focus .text:not(.isActive) {
+    color: var(--color-content-strong);
+  }
+}

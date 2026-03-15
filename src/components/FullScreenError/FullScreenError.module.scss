@@ -1,0 +1,26 @@
+.screenWrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background: var(--color-background-surface);
+  --dotColor: var(--color-background-static-strong);
+}
+
+.wrapper {
+  position: relative;
+  z-index: 2;
+  margin: 64px;
+  padding: 24px;
+  width: 400px;
+  background: var(--color-background-static-muted);
+  @include inner-border(var(--color-border-default));
+  border-radius: var(--radii-large);
+}
+
+.buttonWrapper {
+  margin-top: 16px;
+}

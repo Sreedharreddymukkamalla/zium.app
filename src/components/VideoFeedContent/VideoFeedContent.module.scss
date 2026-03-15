@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  gap: 12px;
+  padding-right: 8px;
+  text-align: left;
+  user-select: none;
+}
+
+.imageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--color-background-static-default);
+  @extend .pos-1dp;
+  border-radius: var(--radii-xsmall);
+  user-select: none;
+  color: var(--color-content-default);
+
+  *[fill] {
+    fill: currentColor;
+  }
+
+  *[fill="none"] {
+    fill: none;
+  }
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.topLabel {
+  @include typography(heading, 300, default);
+  color: var(--color-content-strong);
+}
+.label {
+  @include typography(heading, 300, display);
+  color: var(--color-content-strong);
+}
