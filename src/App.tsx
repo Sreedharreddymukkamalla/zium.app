@@ -13,6 +13,7 @@ import { NotSupported } from "./views/NotSupported/NotSupported";
 import { isSupportedBrowser } from "./utils/platform";
 import { AnalyticsContextProvider } from "./hooks/useAnalytics/useAnalytics";
 import { PrivacyPolicy } from "./views/PrivacyPolicy/PrivacyPolicy";
+import { WebGPUView } from "./views/WebGPUView/WebGPUView";
 import { DebugPanel } from "./components/DebugPanel/DebugPanel";
 import { SnackbarsList } from "./components/Snackbar/SnackbarsList";
 import { FeatureFlagsWrapper } from "./hooks/useFeatureFlags/FeatureFlagsWrapper";
@@ -60,6 +61,7 @@ function App() {
         <FeatureFlagsWrapper>
           <Routes>
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/3d-view" element={<WebGPUView />} />
             {isSupportedBrowser ? (
               <Route
                 path="/"

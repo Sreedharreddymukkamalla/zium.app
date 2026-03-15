@@ -13,10 +13,23 @@ export default defineConfig(({ mode }) => {
   const posthogProjectId = process.env.POSTHOG_PROJECT_ID;
   const posthogPersonalApiKey = process.env.POSTHOG_PERSONAL_API_KEY;
 
+  const xrEnv = process.env.XR_ENV;
+
+  const xrEnvHtmlPlugin: Plugin = {
+    name: "xr-env-html",
+    transformIndexHtml(html) {
+      if (xrEnv === "avp") {
+        return html.replace('<html lang="en">', '<html lang="en" class="is-spatial">');
+      }
+      return html;
+    },
+  };
+
   return {
     plugins: [
       react(),
       svgr(),
+      xrEnvHtmlPlugin,
       ...(posthogProjectId && posthogPersonalApiKey
         ? [
             posthogRollupPlugin({

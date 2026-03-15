@@ -1,5 +1,6 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { useRef } from "react";
+import { initScene } from "@webspatial/react-sdk";
 import { Button } from "../../../components/Button/Button";
 import { Input } from "../../../components/Input/Input";
 import { Logo } from "../../../components/Logo/Logo";
@@ -71,7 +72,19 @@ export const Header = ({ searchQuery, setSearchQuery, overwriteVisibleSeason }: 
                 shortcut="/"
               />
             </div>
-
+            <Button
+              variant="Secondary"
+              size="Action"
+              onClick={() => {
+                initScene("3dRaceScene", (prevConfig) => ({
+                  ...prevConfig,
+                  defaultSize: { width: 1200, height: 800 },
+                }));
+                window.open("/3d-view", "3dRaceScene");
+              }}
+            >
+              3D Race View
+            </Button>
           </div>
         </div>
       </div>
