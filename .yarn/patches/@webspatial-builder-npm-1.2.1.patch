@@ -1,0 +1,12 @@
+diff --git a/dist/lib/xcode/xcrun.js b/dist/lib/xcode/xcrun.js
+--- a/dist/lib/xcode/xcrun.js
++++ b/dist/lib/xcode/xcrun.js
+@@ -157,7 +157,7 @@
+         }
+         (0, file_1.clearDir)(resource_1.PROJECT_TEST_DIRECTORY);
+         const buildCMD = new xcodebuild_1.XcodebuildCMD().project(projectFile).line +
+-            ` build -scheme web-spatial -destination 'platform=visionOS Simulator,id=${deviceId}' -derivedDataPath ${resource_1.PROJECT_TEST_DIRECTORY}`;
++            ` build -scheme web-spatial -destination 'platform=visionOS Simulator,id=${deviceId}' -derivedDataPath ${resource_1.PROJECT_TEST_DIRECTORY} CODE_SIGNING_ALLOWED=NO`;
+         console.log(`---- build start on ${deviceId} ----`);
+         try {
+             const res = (0, child_process_1.execSync)(buildCMD);
