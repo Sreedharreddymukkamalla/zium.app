@@ -19,7 +19,6 @@ import { ChosenValueType, StreamPickerProvider } from "../../hooks/useStreamPick
 import { StreamPicker } from "../../components/StreamPicker/StreamPicker";
 import { Player } from "../../components/Player/Player";
 import { isNotNullable } from "../../utils/isNotNullable";
-import { CookieBanner } from "../../components/CookieBanner/CookieBanner";
 import { ZiumOffsetsOverwriteOnStartDialog } from "../../components/ZiumOffsetsDialogs/ZiumOffsetsOverwriteOnStartDialog";
 import { GlobalShortcutsSnackbar } from "../../components/ShortcutsSnackbar/ShortcutsSnackbar";
 import { toggleFullScreen } from "../../utils/toggleFullScreen";
@@ -350,7 +349,6 @@ export const Viewer = memo(({ streams, season, isLive, raceInfo, playbackOffsets
   return (
     <StreamPickerProvider>
       <div className={styles.backgroundWrapper}>
-        <CookieBanner position="top" mode="fixed" />
         <BackgroundDots baseGrid={baseGrid} />
         <TransitionGroup component={null}>
           {layout.map((l) => {

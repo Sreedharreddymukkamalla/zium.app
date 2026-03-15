@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import { NON_BREAKING_HYPHEN } from "../../utils/text";
-import { CookieBanner } from "../CookieBanner/CookieBanner";
 import { Logo } from "../Logo/Logo";
 import styles from "./OnboardingLayout.module.scss";
 
@@ -31,7 +30,6 @@ export const OnboardingLayout = ({ children, stepsCount, selectedStepIndex }: On
           </div>
         </div>
       </div>
-      <CookieBanner position="bottom" mode="sticky" />
     </div>
   );
 };

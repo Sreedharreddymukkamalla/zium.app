@@ -8,7 +8,6 @@ import { useRacesList } from "../../hooks/useRacesList/useRacesList";
 import { RacesState } from "../../hooks/useRacesList/useRacesList.types";
 import { WithVariables } from "../../components/WithVariables/WithVariables";
 import { useTrackWithTitle } from "../../hooks/useAnalytics/useAnalytics";
-import { CookieBanner } from "../../components/CookieBanner/CookieBanner";
 import { useHeaderCardData } from "../../hooks/useHeaderCardData/useHeaderCardData";
 import { GlobalShortcutsSnackbar } from "../../components/ShortcutsSnackbar/ShortcutsSnackbar";
 import { useEasterEgg } from "../../hooks/useEasterEgg/useEasterEgg";
@@ -147,7 +146,6 @@ export const Races = () => {
         </div>
       </div>
       <GlobalShortcutsSnackbar />
-      <CookieBanner mode="sticky" position="bottom" />
     </WithVariables>
   );
 };

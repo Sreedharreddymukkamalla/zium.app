@@ -26,7 +26,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "jsxImportSource": "@webspatial/react-sdk",
   },
   "include": ["src", "api"],
   "references": [{ "path": "./tsconfig.node.json" }]

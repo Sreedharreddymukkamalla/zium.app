@@ -1,7 +1,6 @@
 import { ArrowLeftIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/Button/Button";
-import { CookieBanner } from "../../components/CookieBanner/CookieBanner";
 import { Logo } from "../../components/Logo/Logo";
 import { useTrackWithTitle } from "../../hooks/useAnalytics/useAnalytics";
 import styles from "./PrivacyPolicy.module.scss";
@@ -70,7 +69,6 @@ export const PrivacyPolicy = () => {
         If you have any questions or concerns about our privacy policy, please contact us at{" "}
         <a href="mailto:contact@raceeye.app">contact@raceeye.app</a>.
       </p>
-      <CookieBanner position="bottom" mode="fixed" />
     </main>
   );
 };

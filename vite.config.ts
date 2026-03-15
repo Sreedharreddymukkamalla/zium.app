@@ -39,6 +39,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     server: {
+      host: true,
       proxy: {
         "/f1tv": {
           target: "https://f1tv.formula1.com",

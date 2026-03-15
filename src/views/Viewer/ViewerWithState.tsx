@@ -11,7 +11,6 @@ import { FullScreenError } from "../../components/FullScreenError/FullScreenErro
 import { Loader } from "../../components/Loader/Loader";
 import { TimedOutWrapper } from "../../components/TimedOutWrapper/TimedOutWrapper";
 import { useTrackWithTitle } from "../../hooks/useAnalytics/useAnalytics";
-import { CookieBanner } from "../../components/CookieBanner/CookieBanner";
 import { UserOffsetsProvider } from "../../hooks/useUserOffests/useUserOffests";
 import { lazyWithPreload } from "../../utils/lazyWithPreload";
 import { assertNotNullable } from "../../utils/assertExistence";
@@ -79,8 +78,6 @@ const LoadingState = () => {
 
   return (
     <div className={styles.backgroundWrapper}>
-      <CookieBanner position="top" mode="fixed" />
-
       <BackgroundDots baseGrid={baseGrid} />
 
       <TimedOutWrapper timeout={500}>
