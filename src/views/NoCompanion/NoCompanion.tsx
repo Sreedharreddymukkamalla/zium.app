@@ -15,7 +15,7 @@ export const NoCompanion = () => {
       <div>
         <Button
           as="a"
-          href="https://chrome.google.com/webstore/detail/ziumapp-helper/bnhjgelnmfeijckmeddnkaicdflimidh"
+          href="https://chrome.google.com/webstore/detail/raceeye-helper/bnhjgelnmfeijckmeddnkaicdflimidh"
           target="_blank"
           rel="noreferrer"
           iconLeft={!isOpening ? PuzzlePieceIcon : Spinner}

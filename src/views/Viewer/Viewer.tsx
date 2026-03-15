@@ -135,11 +135,9 @@ export const Viewer = memo(({ streams, season, isLive, raceInfo, playbackOffsets
     [dispatch],
   );
 
-  const shouldUseKidsAvatars = useFeatureFlags((state) => state.flags.useKidsAvatars);
-  const isKidsStream = raceInfo.title.toLowerCase().includes("kids") || shouldUseKidsAvatars;
   const availableDrivers = useMemo(
-    () => getAvailableDrivers(streams, season, isKidsStream),
-    [isKidsStream, season, streams],
+    () => getAvailableDrivers(streams, season),
+    [season, streams],
   );
   const usedWindows = useMemo(
     () =>

@@ -23,7 +23,6 @@ import { joinReactNodes } from "../../../utils/joinReactNodes";
 import { isNotFalse } from "../../../utils/isNotFalse";
 import { Tooltip } from "../../../components/Tooltip/Tooltip";
 import { formatDateDayShortMonthYear, formatDateDayLongMonthYearTime } from "../../../utils/date";
-import { AdditionalEvents } from "./AdditionalEvents/AdditionalEvents";
 import { EventSession } from "./EventSession/EventSession";
 import styles from "./RaceDetails.module.scss";
 import { adjustTitle, getRaceIcon } from "./RaceDetails.utils";
@@ -101,12 +100,6 @@ export const RaceDetails = ({ id, endDate, onClose, seasonId, ziumOffsetsInfo }:
   }
 
   const raceEvents = racesDetailsState.data.filter((race) => isRaceGenre(race.genre));
-  const areAllEventsFinished = racesDetailsState.data.every(
-    ({ endDate, hasMedia, isLive }) => hasMedia || isLive || endDate == null || isPast(endDate),
-  );
-  const additionalEvents = racesDetailsState.data.filter(
-    (race) => !isRaceGenre(race.genre) && (race.hasMedia || race.isLive),
-  );
 
   return (
     <div className={styles.grid}>
@@ -133,7 +126,6 @@ export const RaceDetails = ({ id, endDate, onClose, seasonId, ziumOffsetsInfo }:
           </ListItem>
         );
       })}
-      <AdditionalEvents areAllEventsFinished={areAllEventsFinished} additionalEvents={additionalEvents} />
     </div>
   );
 };

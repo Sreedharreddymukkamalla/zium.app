@@ -47,7 +47,7 @@ export const ZiumOffsetsConfirmOverwriteDialog = ({
           subtitle={
             <>
               <div>
-                Time offsets for this session have been already defined by the Zium team. Are you sure you want to
+                Time offsets for this session have been already defined by the RaceEye team. Are you sure you want to
                 override them? You’ll be able to reset it later.
               </div>
               <div className={styles.checkboxWrapper}>

@@ -84,7 +84,6 @@ const mapEventToRaceDetailsData = (event: Event, isReplay: boolean): RaceDetails
 
   const [firstGenre] = event.metadata.genres;
   const isRace = isRaceGenre(firstGenre);
-  const isKidsStream = event.metadata.title.startsWith("F1 Kids");
   const pictureId = PictureId.parse(event.metadata.pictureUrl);
 
   return {
@@ -101,7 +100,6 @@ const mapEventToRaceDetailsData = (event: Event, isReplay: boolean): RaceDetails
     endDate,
     roundNumber: event.metadata.emfAttributes.Meeting_Number,
     isSingleEvent: false,
-    isKidsStream,
     genre: !isRace || event.metadata.emfAttributes.ContentCategory === "EPISODIC" ? "show" : firstGenre,
   };
 };

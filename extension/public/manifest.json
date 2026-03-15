@@ -1,5 +1,5 @@
 {
-  "name": "zium.app Helper",
+  "name": "RaceEye Helper",
   "version": "1.1.1",
   "icons": {
     "16": "icon16.png",
@@ -7,7 +7,7 @@
     "48": "icon48.png",
     "128": "icon128.png"
   },
-  "description": "This is a companion extension needed for the zium.app to work properly.",
+  "description": "This is a companion extension needed for RaceEye to work properly.",
   "declarative_net_request": {
     "rule_resources": [
       {

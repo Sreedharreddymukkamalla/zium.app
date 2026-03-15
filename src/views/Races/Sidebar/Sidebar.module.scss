@@ -1,14 +1,9 @@
 .wrapper {
-  --offset-from-top: calc(var(--season-header-height) + var(--season-header-margin));
-
   display: flex;
-  height: calc(100vh - calc(var(--offset-from-top) + var(--header-height) + var(--heading-margin-bottom)));
-  flex-direction: column;
-  position: sticky;
-  top: calc(var(--offset-from-top) + var(--header-height) + var(--heading-margin-bottom));
-  align-self: flex-start;
-  margin-top: var(--offset-from-top);
-  padding-right: 24px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 0 16px;
 }
 
 .element {
@@ -17,7 +12,7 @@
 
 .elementsWrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 8px;
   position: relative;
 }

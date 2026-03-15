@@ -1,13 +1,13 @@
 .layout {
   display: grid;
-  grid-template-columns: minmax(256px, 1fr) repeat(3, 1fr);
-  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr;
   padding: 0 24px;
-  gap: var(--heading-margin-bottom) 24px;
+  gap: 0;
 }
 
 .seasons {
-  grid-column: 2 / -1;
+  grid-column: 1;
 }
 
 .races summary {

@@ -62,15 +62,15 @@ export const LogIn = () => {
       <Dialog isOpen={isLearnMoreOpen} onClose={() => setIsLearnMoreOpen(false)} width={400}>
         <DialogContent>
           <DialogContentInformation
-            title="Zium and privacy"
+            title="RaceEye and privacy"
             subtitle={
               <div className={styles.learnMoreContent}>
                 <p>
                   Login information is stored and used solely on your device. No passwords, personal data, or payment
-                  information is sent to zium.app servers.
+                  information is sent to RaceEye servers.
                 </p>
                 <p>
-                  You must have an active F1 TV subscription to access video streams. zium.app doesn&rsquo;t allow you
+                  You must have an active F1 TV subscription to access video streams. RaceEye doesn&rsquo;t allow you
                   to watch Formula 1 for free.
                 </p>
                 <p>

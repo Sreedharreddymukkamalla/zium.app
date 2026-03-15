@@ -1,27 +1,23 @@
 import cn from "classnames";
-import { ReactComponent as LogoSvg } from "../../assets/logo.svg";
+import logoSrc from "../../assets/raceye.png";
 import styles from "./Logo.module.scss";
 
-type OptionalHeight = {
-  height?: number;
-  width: number;
-};
-
-type OptionalWidth = {
-  height: number;
-  width?: number;
-};
-
-type BothProvided = {
-  height: number;
-  width: number;
-};
-
-type SizeProps = OptionalHeight | OptionalWidth | BothProvided;
 type LogoProps = {
+  height?: number;
+  width?: number;
+  className?: string;
   color?: string;
-} & SizeProps &
-  React.SVGProps<SVGSVGElement>;
-export const Logo = ({ color, height, width, className, ...props }: LogoProps) => {
-  return <LogoSvg className={cn(styles.logo, className)} height={height} width={width} style={{ color }} {...props} />;
+} & React.ImgHTMLAttributes<HTMLImageElement>;
+
+export const Logo = ({ height, width, className, color, style, ...props }: LogoProps) => {
+  return (
+    <img
+      src={logoSrc}
+      className={cn(styles.logo, className)}
+      height={height}
+      width={width}
+      style={{ color, ...style }}
+      {...props}
+    />
+  );
 };

@@ -23,7 +23,7 @@ export const NotSupported = () => {
         </Button>
       )}
       <p className={styles.text}>
-        Unfortunately zium.app is currently available only on desktop Chromium-based browsers.{" "}
+        Unfortunately RaceEye is currently available only on desktop Chromium-based browsers.{" "}
         {!isMobile && (
           <span>
             For the best experience, please use{" "}

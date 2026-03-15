@@ -12,7 +12,7 @@ export const PrivacyPolicy = () => {
   return (
     <main className={styles.wrapper}>
       <Button variant="Secondary" iconLeft={ArrowLeftIcon} as={Link} to="/">
-        Back to Zium
+        Back to RaceEye
       </Button>
 
       <h1>
@@ -37,7 +37,7 @@ export const PrivacyPolicy = () => {
 
       <p>
         Login information is stored and used solely on your device. No passwords, personal data, or payment information
-        is sent to zium.app servers.
+        is sent to RaceEye servers.
       </p>
 
       <h2>Use of cookies</h2>
@@ -56,7 +56,7 @@ export const PrivacyPolicy = () => {
 
       <p>
         You have the right to access, correct, and delete your personal information. You can contact us at any time to
-        exercise these rights at <a href="mailto:zium@zium.app">zium@zium.app</a>.
+        exercise these rights at <a href="mailto:contact@raceeye.app">contact@raceeye.app</a>.
       </p>
 
       <h2>Changes to this policy</h2>
@@ -68,7 +68,7 @@ export const PrivacyPolicy = () => {
 
       <p>
         If you have any questions or concerns about our privacy policy, please contact us at{" "}
-        <a href="mailto:zium@zium.app">zium@zium.app</a>.
+        <a href="mailto:contact@raceeye.app">contact@raceeye.app</a>.
       </p>
       <CookieBanner position="bottom" mode="fixed" />
     </main>

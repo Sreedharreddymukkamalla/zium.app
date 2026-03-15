@@ -186,14 +186,14 @@ chrome.alarms.onAlarm.addListener(async ({ name }) => {
   chrome.notifications.create({
     type: "basic",
     title: `${alarm.eventName} starts soon!`,
-    message: "Click here to open zium.app",
+    message: "Click here to open RaceEye",
     iconUrl: alarm.image,
   });
 });
 
-chrome.notifications.onClicked.addListener(() => focusOrOpenZium());
+chrome.notifications.onClicked.addListener(() => focusOrOpenRaceEye());
 
-async function focusOrOpenZium() {
+async function focusOrOpenRaceEye() {
   const appDomains = import.meta.env.VITE_APP_DOMAINS.split(",").map((d: string) =>
     d === "localhost" ? `http://${d.trim()}:*/` : `https://${d.trim()}/`,
   );
@@ -201,7 +201,7 @@ async function focusOrOpenZium() {
   const [firstTab] = await chrome.tabs.query({ url: appDomains });
   if (firstTab?.id == null) {
     await chrome.tabs.create({
-      url: "https://www.zium.app",
+      url: "https://www.raceeye.app",
     });
     return;
   }
@@ -243,7 +243,7 @@ chrome.runtime.onMessage.addListener(function (msg, _sender, sendResponse) {
     switch (type) {
       case "REQUEST_LOGIN": {
         const loginResponse = await requestLogin();
-        await focusOrOpenZium();
+        await focusOrOpenRaceEye();
         sendResponse(loginResponse);
         break;
       }
@@ -275,7 +275,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
     return;
   }
 
-  focusOrOpenZium();
+  focusOrOpenRaceEye();
 });
 
 chrome.cookies.onChanged.addListener((changeInfo) => {

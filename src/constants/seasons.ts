@@ -1,10 +1,10 @@
 export const SUPPORTED_SEASONS = [
   "2026",
   "2025",
-  "2024",
-  "2023",
-  "2022",
-  "2021",
+  // "2024",
+  // "2023",
+  // "2022",
+  // "2021",
   // "2020",
   // "2019",
   // "2018",
@@ -50,10 +50,10 @@ export type SupportedSeasons = (typeof SUPPORTED_SEASONS)[number];
 export const SEASON_TO_F1_ID_MAP: Record<SupportedSeasons, string> = {
   "2026": "12343",
   "2025": "10295",
-  "2024": "8192",
-  "2023": "6603",
-  "2022": "4319",
-  "2021": "1510",
+  // "2024": "8192",
+  // "2023": "6603",
+  // "2022": "4319",
+  // "2021": "1510",
   // "2020": "392",
   // "2019": "2128",
   // "2018": "2130",
@@ -97,12 +97,9 @@ export const SEASON_TO_F1_ID_MAP: Record<SupportedSeasons, string> = {
 };
 
 export const COMING_SOON_SEASONS_DATA: Partial<Record<SupportedSeasons, Date>> = {
-  "2022": new Date(2022, 2, 3),
-  "2023": new Date(2023, 2, 3),
-  "2024": new Date(2024, 1, 21),
-  "2026": new Date(3000, 1, 21),
+  // "2022": new Date(2022, 2, 3),
+  // "2023": new Date(2023, 2, 3),
+  // "2024": new Date(2024, 1, 21),
 };
 
-export const LATEST_SEASON = Object.entries(COMING_SOON_SEASONS_DATA).sort(
-  ([, a], [, b]) => b.getTime() - a.getTime(),
-)[0][0];
+export const LATEST_SEASON = SUPPORTED_SEASONS[0];

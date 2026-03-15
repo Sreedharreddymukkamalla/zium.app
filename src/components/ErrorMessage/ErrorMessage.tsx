@@ -4,8 +4,8 @@ import { Button } from "../Button/Button";
 import { DialogContentAlert } from "../Dialog/DialogContent/DialogContent";
 import styles from "./ErrorMessage.module.scss";
 
-const EMAIL_ADDRESS = "zium@zium.app";
-const SUBJECT = "zium.app Error Report";
+const EMAIL_ADDRESS = "contact@raceeye.app";
+const SUBJECT = "RaceEye Error Report";
 
 export interface ErrorMessageProps {
   error: Error | string | null | undefined | unknown;
