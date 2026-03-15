@@ -68,7 +68,7 @@ export const VideoJS = forwardRef<PlayerAPI | null, VideoJSProps>(
         const baseOptions: VideoJSOptions = {
           key: "<PLAYER_LICENSE_KEY>",
           playback: {
-            muted: false,
+            muted: isMuted,
             autoplay: !isPaused,
           },
           logs: {
@@ -161,7 +161,9 @@ export const VideoJS = forwardRef<PlayerAPI | null, VideoJSProps>(
       if (isPaused) {
         playerRef.current?.pause();
       } else {
-        playerRef.current?.play();
+        playerRef.current?.play()?.catch(() => {
+          // Autoplay blocked by browser policy (common on Safari/visionOS without user gesture)
+        });
       }
     }, [isPaused]);
 
