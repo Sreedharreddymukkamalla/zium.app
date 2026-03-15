@@ -4,7 +4,7 @@ import { XMarkIcon } from "@heroicons/react/20/solid";
 import { Button } from "../../components/Button/Button";
 import styles from "./WebGPUView.module.scss";
 
-const WEBGPU_VIZ_URL = import.meta.env.VITE_WEBGPU_VIZ_URL ?? "http://localhost:5174";
+const WEBGPU_VIZ_URL = import.meta.env.VITE_WEBGPU_VIZ_URL ?? "http://localhost:5175";
 
 export const WebGPUView = () => {
   const navigate = useNavigate();

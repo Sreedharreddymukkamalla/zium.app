@@ -1,3 +1,4 @@
+/// <reference path="../../../vite-env.d.ts" />
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { useRef } from "react";
 import { initScene } from "@webspatial/react-sdk";
@@ -80,7 +81,8 @@ export const Header = ({ searchQuery, setSearchQuery, overwriteVisibleSeason }: 
                   ...prevConfig,
                   defaultSize: { width: 1200, height: 800 },
                 }));
-                window.open("/3d-view", "3dRaceScene");
+                const base = typeof __XR_ENV_BASE__ !== "undefined" ? __XR_ENV_BASE__ : "";
+                window.open(`${base}/3d-view`, "3dRaceScene");
               }}
             >
               3D Race View

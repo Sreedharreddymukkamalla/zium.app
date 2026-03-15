@@ -57,7 +57,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={typeof __XR_ENV_BASE__ !== "undefined" ? __XR_ENV_BASE__ : undefined}>
         <FeatureFlagsWrapper>
           <Routes>
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />

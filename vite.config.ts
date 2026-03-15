@@ -2,6 +2,8 @@ import { defineConfig, resolvePackageData, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import svgr from "vite-plugin-svgr";
 import posthogRollupPlugin from "@posthog/rollup-plugin";
+import webSpatial from "@webspatial/vite-plugin";
+import { createHtmlPlugin } from "vite-plugin-html";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -25,10 +27,26 @@ export default defineConfig(({ mode }) => {
     },
   };
 
+  /** Base path for WebSpatial/visionOS; required for client-side routing */
+  const xrEnvBase = xrEnv ? `/webspatial/${xrEnv}` : undefined;
+
   return {
+    define: {
+      __XR_ENV_BASE__: xrEnvBase ? JSON.stringify(xrEnvBase) : "undefined",
+    },
     plugins: [
-      react(),
+      webSpatial(),
+      react({
+        jsxImportSource: "@webspatial/react-sdk",
+      }),
       svgr(),
+      ...createHtmlPlugin({
+        inject: {
+          data: {
+            XR_ENV: process.env.XR_ENV,
+          },
+        },
+      }),
       xrEnvHtmlPlugin,
       ...(posthogProjectId && posthogPersonalApiKey
         ? [
@@ -48,6 +66,7 @@ export default defineConfig(({ mode }) => {
       preprocessorOptions: {
         scss: {
           additionalData: `@import "src/styles/mixins.scss";`,
+          silenceDeprecations: ["legacy-js-api", "import"],
         },
       },
     },

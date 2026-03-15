@@ -41,6 +41,9 @@
       <a href="#about-the-project">About The Project</a>
     </li>
     <li>
+      <a href="#apple-vision-pro-development">Apple Vision Pro Development</a>
+    </li>
+    <li>
       <a href="#contributing">Contributing</a>
       <ul>
         <li>
@@ -70,6 +73,33 @@
 Want to feel like you're a race engineer during a Formula 1 race? With zium.app (_/[ʑ](https://en.wikipedia.org/wiki/Voiced_alveolo-palatal_fricative)[u](https://en.wikipedia.org/wiki/Close_back_rounded_vowel)[m](https://en.wikipedia.org/wiki/Voiced_bilabial_nasal) [d](https://en.wikipedia.org/wiki/Voiced_dental_and_alveolar_plosives)[ɒ](https://en.wikipedia.org/wiki/Open_back_rounded_vowel)[t](https://en.wikipedia.org/wiki/Voiceless_dental_and_alveolar_plosives) [æ](https://en.wikipedia.org/wiki/Near-open_front_unrounded_vowel)[p](https://en.wikipedia.org/wiki/Voiceless_bilabial_plosive)/_), you can watch the race from multiple angles at once, all inside your browser. The Multi-View Experience lets you create your own responsive pit-wall with multiple onboard cameras, race details and the main F1 TV broadcast.
 
 > An active F1 TV subscription is required to access the video streams. zium.app doesn’t allow you to watch Formula 1 for free.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- VISION PRO -->
+## Apple Vision Pro Development
+
+To run the app in the visionOS simulator or on a Vision Pro device:
+
+1. **Start the WebSpatial dev server** (Terminal 1):
+   ```bash
+   npm run dev:avp
+   ```
+   This serves the app at `http://localhost:5173/webspatial/avp/`.
+
+2. **Run the packaged app** (Terminal 2):
+   ```bash
+   npm run run:avp
+   ```
+   By default this loads from `http://localhost:5173/webspatial/avp/`. If the simulator can't reach localhost, use your Mac's IP:
+   ```bash
+   XR_DEV_SERVER=http://10.104.3.37:5173/webspatial/avp/ npm run run:avp
+   ```
+   Replace `10.104.3.37` with your Mac's local IP (find it in System Settings → Network).
+
+**Why Safari shows content but the packaged app is blank:** The packaged app must load from the WebSpatial-specific URL (`/webspatial/avp/`), not the root. Safari loads the regular build from `/`; the packaged app needs the WebSpatial build with the spatial SDK. Use `dev:avp` and the correct `XR_DEV_SERVER` URL.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
